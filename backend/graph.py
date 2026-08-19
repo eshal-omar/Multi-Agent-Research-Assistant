@@ -1,6 +1,4 @@
 """
-graph.py
---------
 Defines the multi-agent research pipeline using LangGraph.
 
 Pipeline (4 agents / nodes):
