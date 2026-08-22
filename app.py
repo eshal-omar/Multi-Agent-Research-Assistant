@@ -17,8 +17,8 @@ st.caption("Search agent → Summarizer agent → Critic agent → Writer agent 
 
 # --- Sanity check for API keys before doing anything else ------------------
 missing_keys = []
-if not os.environ.get("ANTHROPIC_API_KEY"):
-    missing_keys.append("ANTHROPIC_API_KEY")
+if not os.environ.get("GROQ_API_KEY"):
+    missing_keys.append("GROQ_API_KEY")
 if not os.environ.get("TAVILY_API_KEY"):
     missing_keys.append("TAVILY_API_KEY")
 

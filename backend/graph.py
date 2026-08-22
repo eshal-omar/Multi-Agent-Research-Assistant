@@ -43,7 +43,7 @@ class ResearchState(TypedDict):
 # ---------------------------------------------------------------------------
 def get_llm():
     return ChatGroq(
-        model=os.environ.get("MODEL_NAME", "llama-3.3-70b-versatile"),
+        model=os.environ.get("MODEL_NAME", "openai/gpt-oss-120b"),
         temperature=0.3,
     )
 
@@ -56,7 +56,7 @@ def search_node(state: ResearchState) -> dict:
     # follow-up query the critic agent generated.
     query = state["topic"] if state["iteration"] == 0 else state["critique"]
 
-    new_results = search_web(query, max_results=5)
+    new_results = search_web(query, max_results=4)
     combined_results = state.get("search_results", []) + new_results
 
     return {
@@ -75,7 +75,9 @@ def summarize_node(state: ResearchState) -> dict:
         f"Source: {r['url']}\nContent: {r['content']}"
         for r in state["search_results"]
     )
-
+    max_sources_chars = 6000
+    if len(sources_text) > max_sources_chars:
+        sources_text = sources_text[:max_sources_chars] + "\n\n[truncated for length]"
     prompt = f"""You are a research summarizer agent.
 
 Topic: "{state['topic']}"
