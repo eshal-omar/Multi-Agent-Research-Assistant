@@ -8,11 +8,11 @@ from backend.graph import build_graph, initial_state
 
 st.set_page_config(
     page_title="Multi-Agent Research Assistant",
-    page_icon="🔎",
+    page_icon=" ",
     layout="wide",
 )
 
-st.title("🔎 Multi-Agent Research Assistant")
+st.title("Multi-Agent Research Assistant")
 st.caption("Search agent → Summarizer agent → Critic agent → Writer agent (built with LangGraph)")
 
 # --- Sanity check for API keys before doing anything else ------------------
@@ -46,7 +46,7 @@ with st.sidebar:
         """
     )
     st.divider()
-    st.caption("Model: " + os.environ.get("MODEL_NAME", "claude-sonnet-4-6"))
+    # st.caption("Model: " + os.environ.get("MODEL_NAME", "claude-sonnet-4-6"))
 
 # --- Main input ---------------------------------------------------------
 topic = st.text_input(
