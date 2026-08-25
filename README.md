@@ -17,9 +17,9 @@ In the Critic -> Search loop: if the critic finds a gap, it generates a targeted
 - Export reports as markdown
 
 ## Tech stack 
-Orchestration: LangGraph
-Frontend: Streamlit
-Programming Language: Python
+- Orchestration: LangGraph
+- Frontend: Streamlit
+- Programming Language: Python
 
 ## Setup
 ### Prerequisites
@@ -30,7 +30,7 @@ Programming Language: Python
 ### Setup
 
 ```bash
-git clone https://github.com/eshal-omar/research-assistant.git
+git clone https://github.com/eshal-omar/Multi-Agent-Research-Assistant.git
 cd research-assistant
 
 python3 -m venv .venv
